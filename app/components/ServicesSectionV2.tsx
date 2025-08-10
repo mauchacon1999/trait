@@ -1,6 +1,40 @@
 'use client'
 
+import { useState, useEffect, useRef } from 'react'
+
 export default function ServicesSectionV2() {
+    const [sectionVisible, setSectionVisible] = useState(false)
+    const sectionRef = useRef<HTMLElement>(null)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setSectionVisible(true)
+                }
+            },
+            {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            }
+        )
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current)
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current)
+            }
+        }
+    }, [])
+
+    // Función para calcular el delay de cada elemento
+    const getElementDelay = (index: number) => {
+        return index * 200 // 200ms entre cada elemento
+    }
+
     const services = [
         {
             id: 'marketing',
@@ -81,24 +115,36 @@ export default function ServicesSectionV2() {
     ]
 
     return (
-        <section className="py-20 bg-white">
+        <section ref={sectionRef} className="py-20 bg-white">
             <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl lg:text-5xl font-bold text-navy-900 mb-6">
+                    <h2 className={`text-4xl lg:text-5xl font-bold text-navy-900 mb-6 transition-all duration-1000 ease-out transform ${sectionVisible
+                            ? 'translate-y-0 opacity-100'
+                            : 'translate-y-full opacity-0'
+                        }`}>
                         EL KNOW HOW MÁS COMPLETO
                     </h2>
-                    <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+                    <p className={`text-xl text-navy-600 max-w-3xl mx-auto transition-all duration-1000 ease-out delay-300 transform ${sectionVisible
+                            ? 'translate-y-0 opacity-100'
+                            : 'translate-y-full opacity-0'
+                        }`}>
                         De una agencia de marketing digital
                     </p>
                 </div>
 
                 {/* Services Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                    {services.map((service) => (
+                    {services.map((service, index) => (
                         <div
                             key={service.id}
-                            className="bg-gradient-to-br from-navy-50 to-slate-purple-50 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:scale-105 flex flex-col h-full"
+                            className={`bg-gradient-to-br from-navy-50 to-slate-purple-50 p-8 rounded-2xl hover:shadow-xl transition-all duration-700 ease-out transform hover:scale-105 flex flex-col h-full ${sectionVisible
+                                    ? 'translate-x-0 opacity-100'
+                                    : 'translate-x-full opacity-0'
+                                }`}
+                            style={{
+                                transitionDelay: `${getElementDelay(index)}ms`
+                            }}
                         >
                             <div className="text-slate-purple-500 mb-6">
                                 {service.icon}
@@ -124,7 +170,10 @@ export default function ServicesSectionV2() {
                 </div>
 
                 {/* Bottom CTA */}
-                <div className="text-center">
+                <div className={`text-center transition-all duration-1000 ease-out delay-800 transform ${sectionVisible
+                        ? 'translate-y-0 opacity-100'
+                        : 'translate-y-full opacity-0'
+                    }`}>
                     <div className="bg-gradient-to-r from-navy-900 to-navy-800 rounded-2xl p-12 text-white">
                         <h3 className="text-3xl lg:text-4xl font-bold mb-4">
                             ¿Listo para transformar tu negocio?

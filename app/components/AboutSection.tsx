@@ -1,6 +1,35 @@
 'use client'
 
+import { useState, useEffect, useRef } from 'react'
+
 export default function AboutSection() {
+    const [sectionVisible, setSectionVisible] = useState(false)
+    const sectionRef = useRef<HTMLElement>(null)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setSectionVisible(true)
+                }
+            },
+            {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            }
+        )
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current)
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current)
+            }
+        }
+    }, [])
+
     const stats = [
         { number: "5+", label: "Años de experiencia", icon: "📅" },
         { number: "200+", label: "Proyectos completados", icon: "🚀" },
@@ -32,13 +61,41 @@ export default function AboutSection() {
     ]
 
     return (
-        <section className="py-24 bg-gradient-to-br from-navy-900 via-navy-800 to-slate-purple-900 text-white relative overflow-hidden">
+        <section ref={sectionRef} className="py-24 bg-gradient-to-br from-navy-900 via-navy-800 to-slate-purple-900 text-white relative overflow-hidden">
 
-            {/* Background Elements */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-20 left-20 w-40 h-40 bg-slate-purple-400 rounded-full opacity-15 animate-pulse"></div>
-                <div className="absolute bottom-20 right-20 w-60 h-60 bg-navy-400 rounded-full opacity-10"></div>
-                <div className="absolute top-1/2 left-10 w-20 h-20 bg-slate-purple-300 rounded-full opacity-20"></div>
+            {/* Background Elements with Dynamic Animation */}
+            <div className={`absolute inset-0 overflow-hidden transition-all duration-2000 ease-out ${sectionVisible ? 'opacity-100' : 'opacity-0'
+                }`}>
+                {/* Animated Background Circles */}
+                <div className={`absolute top-20 left-20 w-40 h-40 bg-slate-purple-400 rounded-full opacity-15 transition-all duration-3000 ease-in-out transform ${sectionVisible
+                    ? 'animate-pulse scale-110 translate-x-4 translate-y-2'
+                    : 'scale-100 translate-x-0 translate-y-0'
+                    }`}></div>
+
+                <div className={`absolute bottom-20 right-20 w-60 h-60 bg-navy-400 rounded-full opacity-10 transition-all duration-4000 ease-in-out transform ${sectionVisible
+                    ? 'scale-125 -translate-x-6 -translate-y-4'
+                    : 'scale-100 translate-x-0 translate-y-0'
+                    }`}></div>
+
+                <div className={`absolute top-1/2 left-10 w-20 h-20 bg-slate-purple-300 rounded-full opacity-20 transition-all duration-2500 ease-in-out transform ${sectionVisible
+                    ? 'scale-150 translate-x-8 translate-y-6'
+                    : 'scale-100 translate-x-0 translate-y-0'
+                    }`}></div>
+
+                {/* Additional Floating Elements */}
+                <div className={`absolute top-1/4 right-1/4 w-16 h-16 bg-slate-purple-500 rounded-full opacity-10 transition-all duration-3500 ease-in-out transform ${sectionVisible
+                    ? 'scale-200 -translate-x-4 translate-y-8'
+                    : 'scale-100 translate-x-0 translate-y-0'
+                    }`}></div>
+
+                <div className={`absolute bottom-1/3 left-1/3 w-24 h-24 bg-navy-300 rounded-full opacity-15 transition-all duration-3000 ease-in-out transform ${sectionVisible
+                    ? 'scale-175 translate-x-6 -translate-y-4'
+                    : 'scale-100 translate-x-0 translate-y-0'
+                    }`}></div>
+
+                {/* Animated Gradient Overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-br from-slate-purple-500/5 via-transparent to-navy-500/5 transition-all duration-5000 ease-in-out ${sectionVisible ? 'opacity-100' : 'opacity-0'
+                    }`}></div>
             </div>
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -46,7 +103,10 @@ export default function AboutSection() {
                 {/* Stats Section */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
                     {stats.map((stat, index) => (
-                        <div key={index} className="text-center group">
+                        <div key={index} className={`text-center group transition-all duration-1000 ease-out transform ${sectionVisible
+                            ? 'translate-y-0 opacity-100 scale-100'
+                            : 'translate-y-12 opacity-0 scale-95'
+                            }`} style={{ transitionDelay: `${index * 200}ms` }}>
                             <div className="mb-4 text-4xl group-hover:scale-110 transition-transform duration-300">
                                 {stat.icon}
                             </div>
@@ -62,9 +122,11 @@ export default function AboutSection() {
 
                 {/* Main Content */}
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
-
                     {/* Left Content */}
-                    <div className="space-y-8">
+                    <div className={`space-y-8 transition-all duration-1000 ease-out transform ${sectionVisible
+                        ? 'translate-x-0 opacity-100'
+                        : '-translate-x-full opacity-0'
+                        }`} style={{ transitionDelay: '800ms' }}>
                         <div>
                             <h2 className="text-4xl lg:text-6xl font-bold mb-6">
                                 ¿Por qué elegir
@@ -78,7 +140,10 @@ export default function AboutSection() {
 
                         <div className="grid gap-6">
                             {whyChooseUs.slice(0, 2).map((item, index) => (
-                                <div key={index} className="flex items-start space-x-4 group">
+                                <div key={index} className={`flex items-start space-x-4 group transition-all duration-700 ease-out transform ${sectionVisible
+                                    ? 'translate-x-0 opacity-100'
+                                    : '-translate-x-full opacity-0'
+                                    }`} style={{ transitionDelay: `${1000 + (index * 200)}ms` }}>
                                     <div className="w-12 h-12 bg-slate-purple-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-slate-purple-400 transition-colors">
                                         <span className="text-xl">{item.icon}</span>
                                     </div>
@@ -96,9 +161,15 @@ export default function AboutSection() {
                     </div>
 
                     {/* Right Content */}
-                    <div className="space-y-6">
+                    <div className={`space-y-6 transition-all duration-1000 ease-out transform ${sectionVisible
+                        ? 'translate-x-0 opacity-100'
+                        : 'translate-x-full opacity-0'
+                        }`} style={{ transitionDelay: '1200ms' }}>
                         {whyChooseUs.slice(2).map((item, index) => (
-                            <div key={index} className="flex items-start space-x-4 group">
+                            <div key={index} className={`flex items-start space-x-4 group transition-all duration-700 ease-out transform ${sectionVisible
+                                ? 'translate-x-0 opacity-100'
+                                : 'translate-x-full opacity-0'
+                                }`} style={{ transitionDelay: `${1400 + (index * 200)}ms` }}>
                                 <div className="w-12 h-12 bg-navy-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-navy-400 transition-colors">
                                     <span className="text-xl">{item.icon}</span>
                                 </div>
@@ -114,7 +185,10 @@ export default function AboutSection() {
                         ))}
 
                         {/* CTA Card */}
-                        <div className="bg-white/15 backdrop-blur-md rounded-3xl p-8 mt-8 border border-white/30 shadow-lg">
+                        <div className={`bg-white/15 backdrop-blur-md rounded-3xl p-8 mt-8 border border-white/30 shadow-lg transition-all duration-1000 ease-out transform ${sectionVisible
+                            ? 'translate-y-0 opacity-100 scale-100'
+                            : 'translate-y-12 opacity-0 scale-95'
+                            }`} style={{ transitionDelay: '1800ms' }}>
                             <h3 className="text-2xl font-bold mb-4">¿Listo para crecer?</h3>
                             <p className="text-gray-300 mb-6">
                                 Hablemos de tu proyecto y descubre cómo podemos impulsar tu negocio digital.
@@ -127,7 +201,10 @@ export default function AboutSection() {
                 </div>
 
                 {/* Process Timeline */}
-                <div className="mt-24">
+                <div className={`mt-24 transition-all duration-1000 ease-out transform ${sectionVisible
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-12 opacity-0'
+                    }`} style={{ transitionDelay: '2000ms' }}>
                     <h3 className="text-3xl lg:text-4xl font-bold text-center mb-16">
                         Nuestro proceso de trabajo
                     </h3>
@@ -139,13 +216,17 @@ export default function AboutSection() {
                             { step: "03", title: "Ejecución", desc: "Implementamos y optimizamos en tiempo real" },
                             { step: "04", title: "Resultados", desc: "Medimos, reportamos y escalamos el éxito" }
                         ].map((process, index) => (
-                            <div key={index} className="text-center group">
+                            <div key={index} className={`text-center group transition-all duration-700 ease-out transform ${sectionVisible
+                                ? 'translate-y-0 opacity-100 scale-100'
+                                : 'translate-y-12 opacity-0 scale-95'
+                                }`} style={{ transitionDelay: `${2200 + (index * 150)}ms` }}>
                                 <div className="relative mb-6">
                                     <div className="w-16 h-16 bg-slate-purple-500/90 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto group-hover:bg-slate-purple-400 transition-colors border border-slate-purple-300/30">
                                         <span className="text-xl font-bold">{process.step}</span>
                                     </div>
                                     {index < 3 && (
-                                        <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-slate-purple-300 opacity-30"></div>
+                                        <div className={`hidden md:block absolute top-8 left-full w-full h-0.5 bg-slate-purple-300 transition-all duration-1000 ease-out ${sectionVisible ? 'opacity-30' : 'opacity-0'
+                                            }`} style={{ transitionDelay: `${2400 + (index * 150)}ms` }}></div>
                                     )}
                                 </div>
                                 <h4 className="text-xl font-bold mb-2 group-hover:text-slate-purple-300 transition-colors">
