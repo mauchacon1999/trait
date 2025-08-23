@@ -1,36 +1,9 @@
 'use client'
-
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import logoTrait from '@/public/logos/logo-azul-marino.png'
 import Image from 'next/image'
 
 export default function Footer() {
-    const [formVisible, setFormVisible] = useState(false)
-    const footerRef = useRef<HTMLElement>(null)
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setFormVisible(true)
-                }
-            },
-            {
-                threshold: 0.2,
-                rootMargin: '0px 0px -100px 0px'
-            }
-        )
-
-        if (footerRef.current) {
-            observer.observe(footerRef.current)
-        }
-
-        return () => {
-            if (footerRef.current) {
-                observer.unobserve(footerRef.current)
-            }
-        }
-    }, [])
 
     const [formData, setFormData] = useState({
         service: '',
@@ -61,24 +34,13 @@ export default function Footer() {
         console.log('Formulario enviado:', formData)
     }
 
-    // Función para calcular el delay de cada campo
-    const getFieldDelay = (index: number) => {
-        return index * 150 // 150ms entre cada campo
-    }
 
     return (
-        <footer ref={footerRef} className="bg-navy-900 text-white">
-            {/* Sección de Contacto */}
+        <footer className="bg-navy-900 text-white">
             <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 py-16">
                 <div className="grid lg:grid-cols-2 gap-16">
-
-                    {/* Columna Izquierda - Información de Contacto */}
                     <div className="space-y-8">
-                        {/* Logo y Título */}
-                        <div className={`space-y-4 transition-all duration-1000 ease-out transform ${formVisible
-                            ? 'translate-x-0 opacity-100'
-                            : '-translate-x-full opacity-0'
-                            }`}>
+                        <div className={`space-y-4 transition-all duration-1000 ease-out transform`}>
                             <Image src={logoTrait} alt="Trait" width={120} height={120} />
                             <h2 className="text-3xl lg:text-4xl font-bold">
                                 Potenciamos tu LTV
@@ -88,10 +50,7 @@ export default function Footer() {
                         </div>
 
                         {/* Información de Contacto */}
-                        <div className={`space-y-6 transition-all duration-1000 ease-out delay-300 transform ${formVisible
-                            ? 'translate-x-0 opacity-100'
-                            : '-translate-x-full opacity-0'
-                            }`}>
+                        <div className={`space-y-6 transition-all duration-1000 ease-out delay-300 transform `}>
                             <div className="flex items-center space-x-3">
                                 <svg className="w-5 h-5 text-slate-purple-400" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
@@ -133,10 +92,7 @@ export default function Footer() {
                         </div>
 
                         {/* Redes Sociales */}
-                        <div className={`flex space-x-4 transition-all duration-1000 ease-out delay-500 transform ${formVisible
-                            ? 'translate-x-0 opacity-100'
-                            : '-translate-x-full opacity-0'
-                            }`}>
+                        <div className={`flex space-x-4 transition-all duration-1000 ease-out delay-500 transform `}>
                             <a href="#" className="text-gray-300 hover:text-slate-purple-400 transition-colors">
                                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -169,10 +125,7 @@ export default function Footer() {
                     <div className="space-y-6">
                         <form onSubmit={handleSubmit} className="space-y-6">
                             {/* Servicio */}
-                            <div className={`transition-all duration-700 ease-out transform ${formVisible
-                                ? 'translate-x-0 opacity-100'
-                                : 'translate-x-full opacity-0'
-                                }`} style={{ transitionDelay: `${getFieldDelay(0)}ms` }}>
+                            <div className={`transition-all duration-700 ease-out transform `} >
                                 <label className="block text-sm font-medium mb-2">
                                     ¿Qué servicio te interesa?*
                                 </label>
@@ -192,10 +145,7 @@ export default function Footer() {
                             </div>
 
                             {/* Presupuesto */}
-                            <div className={`transition-all duration-700 ease-out transform ${formVisible
-                                ? 'translate-x-0 opacity-100'
-                                : 'translate-x-full opacity-0'
-                                }`} style={{ transitionDelay: `${getFieldDelay(1)}ms` }}>
+                            <div className={`transition-all duration-700 ease-out transform `} >
                                 <label className="block text-sm font-medium mb-2">
                                     Presupuesto mensual*
                                 </label>
@@ -215,10 +165,7 @@ export default function Footer() {
                             </div>
 
                             {/* Nombre y Apellidos */}
-                            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 transition-all duration-700 ease-out transform ${formVisible
-                                ? 'translate-x-0 opacity-100'
-                                : 'translate-x-full opacity-0'
-                                }`} style={{ transitionDelay: `${getFieldDelay(2)}ms` }}>
+                            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 transition-all duration-700 ease-out transform `} >
                                 <div>
                                     <label className="block text-sm font-medium mb-2">
                                         Nombre*
@@ -248,10 +195,7 @@ export default function Footer() {
                             </div>
 
                             {/* Compañía y Email */}
-                            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 transition-all duration-700 ease-out transform ${formVisible
-                                ? 'translate-x-0 opacity-100'
-                                : 'translate-x-full opacity-0'
-                                }`} style={{ transitionDelay: `${getFieldDelay(3)}ms` }}>
+                            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 transition-all duration-700 ease-out transform `} >
                                 <div>
                                     <label className="block text-sm font-medium mb-2">
                                         Compañía*
@@ -282,10 +226,7 @@ export default function Footer() {
                             </div>
 
                             {/* Teléfono */}
-                            <div className={`transition-all duration-700 ease-out transform ${formVisible
-                                ? 'translate-x-0 opacity-100'
-                                : 'translate-x-full opacity-0'
-                                }`} style={{ transitionDelay: `${getFieldDelay(4)}ms` }}>
+                            <div className={`transition-all duration-700 ease-out transform `} >
                                 <label className="block text-sm font-medium mb-2">
                                     Teléfono*
                                 </label>
@@ -300,10 +241,7 @@ export default function Footer() {
                             </div>
 
                             {/* Mensaje */}
-                            <div className={`transition-all duration-700 ease-out transform ${formVisible
-                                ? 'translate-x-0 opacity-100'
-                                : 'translate-x-full opacity-0'
-                                }`} style={{ transitionDelay: `${getFieldDelay(5)}ms` }}>
+                            <div className={`transition-all duration-700 ease-out transform `} >
                                 <label className="block text-sm font-medium mb-2">
                                     Cuéntanos sobre tu proyecto
                                 </label>
@@ -317,10 +255,7 @@ export default function Footer() {
                             </div>
 
                             {/* Política de Privacidad */}
-                            <div className={`flex items-start space-x-3 transition-all duration-700 ease-out transform ${formVisible
-                                ? 'translate-x-0 opacity-100'
-                                : 'translate-x-full opacity-0'
-                                }`} style={{ transitionDelay: `${getFieldDelay(6)}ms` }}>
+                            <div className={`flex items-start space-x-3 transition-all duration-700 ease-out transform `} >
                                 <input
                                     type="checkbox"
                                     name="acceptPolicy"
@@ -335,10 +270,7 @@ export default function Footer() {
                             </div>
 
                             {/* Botón Enviar */}
-                            <div className={`transition-all duration-700 ease-out transform ${formVisible
-                                ? 'translate-x-0 opacity-100'
-                                : 'translate-x-full opacity-0'
-                                }`} style={{ transitionDelay: `${getFieldDelay(7)}ms` }}>
+                            <div className={`transition-all duration-700 ease-out transform `} >
                                 <button
                                     type="submit"
                                     className="w-full bg-gradient-to-r from-slate-purple-500 to-slate-purple-600 hover:from-slate-purple-600 hover:to-slate-purple-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-xl"
@@ -349,19 +281,17 @@ export default function Footer() {
                         </form>
                     </div>
                 </div>
-            </div>
+            </div >
 
             {/* Copyright */}
-            <div className={`border-t border-navy-800 transition-all duration-1000 ease-out delay-800 transform ${formVisible
-                ? 'translate-y-0 opacity-100'
-                : 'translate-y-full opacity-0'
-                }`}>
+            < div className={`border-t border-navy-800 transition-all duration-1000 ease-out delay-800 transform`
+            }>
                 <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 py-6">
                     <p className="text-center text-gray-400 text-sm">
                         2024 - DISEÑO Y DESARROLLO POR TRAIT
                     </p>
                 </div>
-            </div>
-        </footer>
+            </div >
+        </footer >
     )
 }
