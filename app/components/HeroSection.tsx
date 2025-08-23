@@ -35,7 +35,8 @@ export default function HeroSection() {
 
                     {/* CTA Button - Enhanced */}
                     <button
-                        className="bg-gradient-to-r from-navy-800 to-navy-900 hover:from-navy-700 hover:to-navy-800 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl border border-navy-700/30"
+                        className="bg-gradient-to-r from-navy-800 to-navy-900 hover:from-navy-700 hover:to-navy-800
+                         text-white px-4 py-2 sm:px-8 sm:py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl border border-navy-700/30"
                     >
                         Pide presupuesto
                     </button>
@@ -47,12 +48,12 @@ export default function HeroSection() {
                         <div className="space-y-8">
                             {/* Main Headline - Enhanced */}
                             <div className={`space-y-6 transition-all duration-1000 `}>
-                                <h1 className="text-5xl lg:text-7xl font-bold leading-[0.9] tracking-tight text-navy-900 group">
+                                <h1 className="text-5xl lg:text-7xl font-bold   leading-[0.9] tracking-tight text-navy-900 group">
                                     Agencia de
                                     <br />
                                     Marketing
                                     <br />
-                                    <span className="text-slate-purple-500 group-hover:text-slate-purple-600 transition-colors duration-300">
+                                    <span className="text-slate-purple-500  group-hover:text-slate-purple-600 transition-colors duration-300">
                                         Digital 360
                                     </span>
                                 </h1>

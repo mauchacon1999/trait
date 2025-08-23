@@ -1,32 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
-import {
-    SiTypescript,
-    SiReact,
-    SiNextdotjs,
-    SiFacebook,
-    SiLaravel,
-    SiMeta,
-    SiOpenai,
-    SiPostgresql,
-} from "react-icons/si";
-import { N8n } from "@lobehub/icons";
+import { logos } from "./logos";
 
-const logos = [
-    { Icon: SiTypescript, label: "TypeScript", size: 60, x: 0, y: -140, delay: 0 },
-    { Icon: SiReact, label: "React", size: 70, x: 100, y: -100, delay: 0.2 },
-    { Icon: N8n, label: "n8n", size: 65, x: 140, y: 0, delay: 0.4 },
-    { Icon: SiPostgresql, label: "JavaScript", size: 60, x: 100, y: 100, delay: 0.6 },
-    { Icon: SiNextdotjs, label: "Next.js", size: 75, x: 0, y: 140, delay: 0.8 },
-    { Icon: SiFacebook, label: "Facebook Ads", size: 65, x: -100, y: 100, delay: 1.0 },
-    { Icon: SiLaravel, label: "Laravel", size: 70, x: -140, y: 0, delay: 1.2 },
-    { Icon: SiMeta, label: "Meta", size: 70, x: 0, y: -0, delay: 1.4 },
-    { Icon: SiOpenai, label: "OpenAI / Chatbot", size: 70, x: -100, y: -100, delay: 1.4 },
-];
+
+
 
 export default function HeroRightVisual() {
     return (
-        <div className="relative w-full h-1/2   items-center justify-center   hidden md:block">
+        <div className="relative w-full h-1/2   items-center justify-center   hidden lg:block">
             {/* Fondo suave */}
             <div className="absolute w-full h-full rounded-full bg-gradient-to-tr from-purple-200/40 to-blue-200/40 blur-3xl"></div>
 
