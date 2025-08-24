@@ -4,6 +4,9 @@ import logoTrait from '@/public/logos/logo-azul-marino.png'
 import Image from 'next/image'
 import HeroRightVisual from './HeroRightVisual'
 import { useState, useEffect } from 'react'
+import { FaWhatsapp } from 'react-icons/fa'
+import { useGoogleAnalytics } from '../hooks/useGoogleAnalytics'
+import { useScrollTracking } from '../hooks/useScrollTracking'
 
 // Componente Typewriter simple
 const TypewriterText = ({ text, speed = 90 }: { text: string; speed?: number }) => {
@@ -29,6 +32,24 @@ const TypewriterText = ({ text, speed = 90 }: { text: string; speed?: number }) 
 };
 
 export default function HeroSection() {
+    const { trackEvent } = useGoogleAnalytics();
+    useScrollTracking(); // Track scroll to footer
+
+    const handleWhatsAppClick = () => {
+        trackEvent('habla_con_nosotros', {
+            button_location: 'hero_section',
+            button_type: 'whatsapp'
+        });
+        // Aquí puedes agregar el enlace de WhatsApp
+        window.open('https://wa.me/+34600000000', '_blank');
+    };
+
+    const handlePresupuestoClick = () => {
+        trackEvent('pedir_presupuesto', {
+            button_location: 'navigation',
+            button_type: 'cta'
+        });
+    };
 
     return (
         <div className='w-full justify-center items-center bg-gradient-to-br from-white via-navy-50 to-slate-purple-50'>
@@ -61,6 +82,7 @@ export default function HeroSection() {
 
                     {/* CTA Button - Enhanced */}
                     <button
+                        onClick={handlePresupuestoClick}
                         className="bg-gradient-to-r from-navy-800 to-navy-900 hover:from-navy-700 hover:to-navy-800
                          text-white px-4 py-2 sm:px-8 sm:py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl border border-navy-700/30"
                     >
@@ -91,8 +113,10 @@ export default function HeroSection() {
                             {/* CTA Button - Enhanced */}
                             <div className={`transition-all duration-1000 delay-300 `}>
                                 <button
-                                    className="bg-gradient-to-r from-slate-purple-500 to-slate-purple-600 hover:from-slate-purple-600 hover:to-slate-purple-700 text-white px-10 py-5 rounded-full font-bold text-xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl border border-slate-purple-400/30 group"
+                                    onClick={handleWhatsAppClick}
+                                    className="bg-gradient-to-r from-slate-purple-500 to-slate-purple-600 hover:from-slate-purple-600 hover:to-slate-purple-700 text-white px-10 py-5 rounded-full font-bold text-xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl border border-slate-purple-400/30 group flex items-center justify-center space-x-3"
                                 >
+                                    <FaWhatsapp className="text-2xl group-hover:scale-110 transition-transform duration-300" />
                                     <span className="group-hover:scale-105 transition-transform duration-300 inline-block">
                                         ¡Hablar con nosotros!
                                     </span>

@@ -79,7 +79,7 @@ export default function ServicesSectionV2() {
     ]
 
     return (
-        <section className="py-10 bg-white">
+        <section className="py-10 bg-white hidden lg:block">
             <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
                 {/* Header */}
                 <div className="text-center mb-16">
