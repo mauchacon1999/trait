@@ -121,8 +121,8 @@ export default function AboutSection() {
                 </div>
 
                 {/* Main Content */}
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    {/* Left Content */}
+               {/*  <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    Left Content 
                     <div className={`space-y-8 transition-all duration-1000 ease-out transform ${sectionVisible
                         ? 'translate-x-0 opacity-100'
                         : '-translate-x-full opacity-0'
@@ -158,9 +158,9 @@ export default function AboutSection() {
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </div> */}
 
-                    {/* Right Content */}
+                    {/* Right Content
                     <div className={`space-y-6 transition-all duration-1000 ease-out transform ${sectionVisible
                         ? 'translate-x-0 opacity-100'
                         : 'translate-x-full opacity-0'
@@ -184,7 +184,6 @@ export default function AboutSection() {
                             </div>
                         ))}
 
-                        {/* CTA Card */}
                         <div className={`bg-white/15 backdrop-blur-md rounded-3xl p-8 mt-8 border border-white/30 shadow-lg transition-all duration-1000 ease-out transform ${sectionVisible
                             ? 'translate-y-0 opacity-100 scale-100'
                             : 'translate-y-12 opacity-0 scale-95'
@@ -198,9 +197,9 @@ export default function AboutSection() {
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                {/* Process Timeline */}
+                {/* Process Timeline 
                 <div className={`mt-24 transition-all duration-1000 ease-out transform ${sectionVisible
                     ? 'translate-y-0 opacity-100'
                     : 'translate-y-12 opacity-0'
@@ -239,6 +238,7 @@ export default function AboutSection() {
                         ))}
                     </div>
                 </div>
+                */}
             </div>
         </section>
     )

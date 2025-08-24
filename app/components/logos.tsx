@@ -1,23 +1,34 @@
 
 import {
-    SiTypescript,
-    SiReact,
-    SiNextdotjs,
     SiFacebook,
-    SiLaravel,
-    SiMeta,
-    SiOpenai,
-    SiPostgresql,
+    SiInstagram,
+    SiTiktok,
+    SiGoogle,
+    SiYoutube,
+    SiWordpress,
+    SiWhatsapp,
+    SiTelegram,
+    SiDiscord,
 } from "react-icons/si";
-import { N8n } from "@lobehub/icons";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaChartLine, FaUsers, FaBullhorn, FaStore, FaBriefcase, FaHandshake, FaRocket, FaAd, FaNewspaper } from "react-icons/fa";
+
 export const logos = [
-    { Icon: SiTypescript, label: "TypeScript", size: 60, x: 0, y: -140, delay: 0 },
-    { Icon: SiReact, label: "React", size: 70, x: 100, y: -100, delay: 0.2 },
-    { Icon: N8n, label: "n8n", size: 65, x: 140, y: 0, delay: 0.4 },
-    { Icon: SiPostgresql, label: "JavaScript", size: 60, x: 100, y: 100, delay: 0.6 },
-    { Icon: SiNextdotjs, label: "Next.js", size: 75, x: 0, y: 140, delay: 0.8 },
-    { Icon: SiFacebook, label: "Facebook Ads", size: 65, x: -100, y: 100, delay: 1.0 },
-    { Icon: SiLaravel, label: "Laravel", size: 70, x: -140, y: 0, delay: 1.2 },
-    { Icon: SiMeta, label: "Meta", size: 70, x: 0, y: -0, delay: 1.4 },
-    { Icon: SiOpenai, label: "OpenAI / Chatbot", size: 70, x: -100, y: -100, delay: 1.4 },
+    // Negocio en el centro
+    { Icon: FaStore, label: "Tu Negocio", size: 80, x: 0, y: 0, delay: 0, isCenter: true },
+    
+    // Empresas de publicidad digital alrededor
+    { Icon: SiFacebook, label: "Facebook Ads", size: 60, x: 0, y: -160, delay: 0.2 },
+    { Icon: SiGoogle, label: "Google Ads", size: 60, x: 140, y: -100, delay: 0.4 },
+    { Icon: SiInstagram, label: "Instagram Ads", size: 60, x: 160, y: 0, delay: 0.6 },
+    { Icon: SiTiktok, label: "TikTok Ads", size: 60, x: 140, y: 100, delay: 0.8 },
+    { Icon: SiYoutube, label: "YouTube Ads", size: 60, x: 0, y: 160, delay: 1.0 },
+    { Icon: FaXTwitter, label: "X (Twitter) Ads", size: 60, x: -140, y: 100, delay: 1.2 },
+    { Icon: SiWordpress, label: "WordPress", size: 60, x: -160, y: 0, delay: 1.4 },
+    { Icon: SiWhatsapp, label: "WhatsApp Ads", size: 60, x: -140, y: -100, delay: 1.6 },
+    
+    // Elementos de marketing digital
+    { Icon: FaChartLine, label: "Analytics", size: 50, x: 100, y: -60, delay: 1.8 },
+    { Icon: FaUsers, label: "Audiencia", size: 50, x: 100, y: 60, delay: 2.0 },
+    { Icon: FaBullhorn, label: "Anuncios", size: 50, x: -100, y: 60, delay: 2.2 },
 ];

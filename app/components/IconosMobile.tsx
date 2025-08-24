@@ -6,7 +6,7 @@ export default function IconosMobile() {
     return (
         <div className="lg:hidden flex w-full mx-auto px-4 space-y-4 items-center justify-center mt-10 flex-col">
             <h1 className="text-3xl lg:text-4xl font-bold mb-4">
-                Vanguardia en tecnología y marketing
+                Conectamos todas las herramientas
             </h1>
             <div className="grid grid-cols-3 sm:grid-cols-9 place-items-center gap-4 w-full text-slate-500 opacity-100">
 

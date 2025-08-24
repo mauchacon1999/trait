@@ -1,6 +1,32 @@
+"use client";
+
 import logoTrait from '@/public/logos/logo-azul-marino.png'
 import Image from 'next/image'
-import HeroRightVisual from './example'
+import HeroRightVisual from './HeroRightVisual'
+import { useState, useEffect } from 'react'
+
+// Componente Typewriter simple
+const TypewriterText = ({ text, speed = 90 }: { text: string; speed?: number }) => {
+    const [displayText, setDisplayText] = useState('');
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        if (currentIndex < text.length) {
+            const timeout = setTimeout(() => {
+                setDisplayText(prev => prev + text[currentIndex]);
+                setCurrentIndex(prev => prev + 1);
+            }, speed);
+            return () => clearTimeout(timeout);
+        }
+    }, [currentIndex, text, speed]);
+
+    return (
+        <span>
+            {displayText}
+            <span className="animate-pulse">|</span>
+        </span>
+    );
+};
 
 export default function HeroSection() {
 
@@ -38,7 +64,7 @@ export default function HeroSection() {
                         className="bg-gradient-to-r from-navy-800 to-navy-900 hover:from-navy-700 hover:to-navy-800
                          text-white px-4 py-2 sm:px-8 sm:py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl border border-navy-700/30"
                     >
-                        Pide presupuesto
+                        Pedir presupuesto
                     </button>
                 </nav>
 
@@ -48,14 +74,8 @@ export default function HeroSection() {
                         <div className="space-y-8">
                             {/* Main Headline - Enhanced */}
                             <div className={`space-y-6 transition-all duration-1000 `}>
-                                <h1 className="text-5xl lg:text-7xl font-bold   leading-[0.9] tracking-tight text-navy-900 group">
-                                    Agencia de
-                                    <br />
-                                    Marketing
-                                    <br />
-                                    <span className="text-slate-purple-500  group-hover:text-slate-purple-600 transition-colors duration-300">
-                                        Digital 360
-                                    </span>
+                                <h1 className="text-5xl lg:text-7xl font-bold leading-[0.9] tracking-tight text-navy-900 group">
+                                    <TypewriterText text="El socio digital que necesita tu negocio" />
                                 </h1>
                             </div>
 
@@ -63,10 +83,7 @@ export default function HeroSection() {
                             <div className={`transition-all duration-1000 delay-200 `}>
                                 <div className="space-y-4 text-navy-600 text-lg lg:text-xl leading-relaxed max-w-xl">
                                     <p className="group hover:text-navy-800 transition-colors duration-300">
-                                        Érase, una vez, una idea loca que se hizo realidad y triunfó como la Coca Cola.
-                                    </p>
-                                    <p className="group hover:text-navy-800 transition-colors duration-300">
-                                        ¿Nos la cuentas? Quizás este es el principio de tu historia...
+                                        Creamos, optimizamos y automatizamos tus campañas de Facebook Ads, Google Ads y TikTok Ads para que vendas más y gastes menos en publicidad
                                     </p>
                                 </div>
                             </div>
@@ -77,30 +94,9 @@ export default function HeroSection() {
                                     className="bg-gradient-to-r from-slate-purple-500 to-slate-purple-600 hover:from-slate-purple-600 hover:to-slate-purple-700 text-white px-10 py-5 rounded-full font-bold text-xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl border border-slate-purple-400/30 group"
                                 >
                                     <span className="group-hover:scale-105 transition-transform duration-300 inline-block">
-                                        ¡Te escuchamos!
+                                        ¡Hablar con nosotros!
                                     </span>
                                 </button>
-                            </div>
-
-                            {/* Quick Stats - New */}
-                            <div className={`grid grid-cols-3 gap-6 pt-8 transition-all duration-1000 delay-400 `}>
-                                {[
-                                    { number: "5+", label: "Años", icon: "📅" },
-                                    { number: "200+", label: "Proyectos", icon: "🚀" },
-                                    { number: "98%", label: "Satisfacción", icon: "😊" }
-                                ].map((stat, index) => (
-                                    <div key={index} className="text-center group">
-                                        <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                                            {stat.icon}
-                                        </div>
-                                        <div className="text-2xl font-bold text-slate-purple-600 group-hover:text-slate-purple-700 transition-colors">
-                                            {stat.number}
-                                        </div>
-                                        <div className="text-sm text-navy-600 group-hover:text-navy-700 transition-colors">
-                                            {stat.label}
-                                        </div>
-                                    </div>
-                                ))}
                             </div>
                         </div>
                         <HeroRightVisual />

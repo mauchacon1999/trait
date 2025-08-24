@@ -78,8 +78,9 @@ module.exports = {
                 sm: 'calc(var(--radius) - 4px)',
             },
             fontFamily: {
-                sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
+                sans: ['Naru Sans', 'var(--font-geist-sans)', 'system-ui', 'sans-serif'],
                 mono: ['var(--font-geist-mono)', 'Consolas', 'monospace'],
+                'naru': ['Naru Sans', 'sans-serif'],
             },
             keyframes: {
                 'accordion-down': {

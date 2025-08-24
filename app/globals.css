@@ -1,3 +1,6 @@
+/* Import Naru Sans font */
+@import url('https://fonts.cdnfonts.com/css/naru-sans');
+
 @import "tailwindcss";
 
 :root {
@@ -119,7 +122,7 @@
   --color-navy-950: var(--navy-950);
   
   /* Font families */
-  --font-sans: var(--font-geist-sans);
+  --font-sans: 'Naru Sans', system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
@@ -148,5 +151,5 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Naru Sans', system-ui, sans-serif;
 }

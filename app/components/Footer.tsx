@@ -43,7 +43,7 @@ export default function Footer() {
                         <div className={`space-y-4 transition-all duration-1000 ease-out transform`}>
                             <Image src={logoTrait} alt="Trait" width={120} height={120} />
                             <h2 className="text-3xl lg:text-4xl font-bold">
-                                Potenciamos tu LTV
+                                Potenciamos tu Negocio
                                 <br />
                                 ¡No te conformes!
                             </h2>
@@ -56,8 +56,8 @@ export default function Footer() {
                                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                 </svg>
                                 <div>
-                                    <p className="font-semibold">Bogotá, Colombia</p>
-                                    <p className="text-gray-300">Cl. 98 # 70-91 Ofc. 1309</p>
+                                    <p className="font-semibold">Santiago, Chile</p>
+                                    <p className="text-gray-300">Apoquindo 6410 Of 1004 Ps 10 Comuna Las Condes</p>
                                 </div>
                             </div>
 
@@ -66,8 +66,7 @@ export default function Footer() {
                                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                 </svg>
                                 <div>
-                                    <p className="font-semibold">Florida, Estados Unidos</p>
-                                    <p className="text-gray-300">8180 NW 36th St Suite 409B Doral, FL 33166</p>
+                                    <p className="font-semibold">Bucaramanga, Colombia</p>
                                 </div>
                             </div>
 
@@ -86,7 +85,7 @@ export default function Footer() {
                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                                 </svg>
                                 <div>
-                                    <p className="font-semibold">contacto@trait.com</p>
+                                    <p className="font-semibold">contacto@trait.info</p>
                                 </div>
                             </div>
                         </div>
@@ -288,7 +287,7 @@ export default function Footer() {
             }>
                 <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 py-6">
                     <p className="text-center text-gray-400 text-sm">
-                        2024 - DISEÑO Y DESARROLLO POR TRAIT
+                        2025 - DISEÑO Y DESARROLLO POR TRAIT
                     </p>
                 </div>
             </div >

@@ -4,16 +4,15 @@ export default function ServicesSectionV2() {
     const services = [
         {
             id: 'marketing',
-            title: 'Marketing Digital',
+            title: 'Publicidad Digital',
             subtitle: 'Estrategias completas para aumentar el tráfico y conversiones',
-            description: 'Desarrollamos estrategias integrales de marketing digital que conectan con tu audiencia y generan resultados medibles. Desde SEO hasta publicidad de pago, optimizamos cada punto de contacto.',
+            description: 'Creamos, optimizamos y automatizamos tus campañas de Facebook Ads, Google Ads y TikTok Ads para que vendas más y gastes menos en publicidad',
             features: [
-                'SEO & SEM',
-                'Publicidad de Pago',
-                'Marketing en Redes Sociales',
-                'Email Marketing',
-                'Analítica Web',
-                'CRO (Optimización de Conversión)'
+                'Facebook Ads',
+                'Google Ads',
+                'TikTok Ads',
+                'Youtube Ads',
+                'Trackeamos los eventos de tu web',
             ],
             icon: (
                 <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
@@ -23,16 +22,15 @@ export default function ServicesSectionV2() {
         },
         {
             id: 'desarrollo',
-            title: 'Desarrollo Web',
-            subtitle: 'Soluciones tecnológicas a medida para tu negocio',
-            description: 'Creamos aplicaciones web y móviles personalizadas que escalan con tu negocio. Utilizamos las últimas tecnologías para desarrollar soluciones robustas y eficientes.',
+            title: 'Desarrollo de Software',
+            subtitle: 'Realizamos desarrollo de software a la medida de tus necesidades',
+            description: 'Si tu negocio necesita un software para automatizar procesos, o una web para tu negocio, te podemos ayudar',
             features: [
-                'Desarrollo Web a Medida',
-                'Aplicaciones Móviles',
-                'E-commerce',
-                'APIs y Integraciones',
-                'Mantenimiento y Soporte',
-                'Optimización de Rendimiento'
+                'Desarrollo Pagina web',
+                'Desarrollo de landing pages',
+                'Optimización de Rendimiento',
+                'Integraciones con tus herramientas',
+                'Desarrollo de Bots'
             ],
             icon: (
                 <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
@@ -86,11 +84,8 @@ export default function ServicesSectionV2() {
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className={`text-4xl lg:text-5xl font-bold text-navy-900 mb-6 transition-all duration-1000 ease-out`}>
-                        EL KNOW HOW MÁS COMPLETO
+                        NUESTROS SERVICIOS
                     </h2>
-                    <p className={`text-xl text-navy-600 max-w-3xl mx-auto transition-all duration-1000 ease-out delay-300`}>
-                        De una agencia de marketing digital
-                    </p>
                 </div>
 
                 {/* Services Grid */}
@@ -118,7 +113,7 @@ export default function ServicesSectionV2() {
                             </div>
                             <button className="w-full bg-gradient-to-r from-slate-purple-500 to-slate-purple-600
                              hover:from-slate-purple-600 hover:to-slate-purple-700 text-white px-6 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-lg">
-                                Ver más
+                                Me interesa este servicio
                             </button>
                         </div>
                     ))}
