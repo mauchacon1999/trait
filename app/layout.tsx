@@ -30,6 +30,7 @@ export default function RootLayout({
       >
         {children}
         <GoogleAnalytics measurementId="GTM-K96KHJR7" />
+        
       </body>
     </html>
   );

@@ -38,7 +38,7 @@ export default function ServicesSection() {
                         Nuestros Servicios
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Soluciones integrales de marketing digital para hacer crecer tu negocio
+                        Soluciones para hacer crecer tu negocio
                     </p>
                 </div>
 
