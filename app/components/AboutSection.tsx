@@ -19,13 +19,14 @@ export default function AboutSection() {
             }
         )
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current)
+        const currentSection = sectionRef.current
+        if (currentSection) {
+            observer.observe(currentSection)
         }
 
         return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current)
+            if (currentSection) {
+                observer.unobserve(currentSection)
             }
         }
     }, [])
@@ -35,29 +36,6 @@ export default function AboutSection() {
         { number: "200+", label: "Proyectos completados", icon: "🚀" },
         { number: "98%", label: "Clientes satisfechos", icon: "😊" },
         { number: "4.8x", label: "ROI promedio", icon: "📈" }
-    ]
-
-    const whyChooseUs = [
-        {
-            title: "Expertise Comprobado",
-            description: "Años de experiencia manejando presupuestos importantes en Meta Ads y desarrollando soluciones web escalables.",
-            icon: "🎯"
-        },
-        {
-            title: "Desarrollo Propio",
-            description: "No dependemos de terceros. Desarrollamos internamente todas las soluciones web que necesitas.",
-            icon: "⚡"
-        },
-        {
-            title: "Resultados Medibles",
-            description: "Cada campaña, cada desarrollo, cada estrategia está orientada a métricas claras y resultados tangibles.",
-            icon: "📊"
-        },
-        {
-            title: "Enfoque en ROI",
-            description: "Tu inversión debe generar retorno. Optimizamos cada euro para maximizar tu rentabilidad.",
-            icon: "💰"
-        }
     ]
 
     return (
@@ -121,7 +99,7 @@ export default function AboutSection() {
                 </div>
 
                 {/* Main Content */}
-               {/*  <div className="grid lg:grid-cols-2 gap-16 items-center">
+                {/*  <div className="grid lg:grid-cols-2 gap-16 items-center">
                     Left Content 
                     <div className={`space-y-8 transition-all duration-1000 ease-out transform ${sectionVisible
                         ? 'translate-x-0 opacity-100'
@@ -160,7 +138,7 @@ export default function AboutSection() {
                         </div>
                     </div> */}
 
-                    {/* Right Content
+                {/* Right Content
                     <div className={`space-y-6 transition-all duration-1000 ease-out transform ${sectionVisible
                         ? 'translate-x-0 opacity-100'
                         : 'translate-x-full opacity-0'

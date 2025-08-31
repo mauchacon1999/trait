@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useEffect } from 'react';
@@ -17,7 +18,7 @@ export default function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps)
   useEffect(() => {
     // Initialize dataLayer
     window.dataLayer = window.dataLayer || [];
-    
+
     // Load GTM script
     const script = document.createElement('script');
     script.async = true;
@@ -25,8 +26,8 @@ export default function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps)
     document.head.appendChild(script);
 
     // Initialize gtag for GTM
-    window.gtag = function gtag() {
-      window.dataLayer.push(arguments);
+    window.gtag = function gtag(...args: any[]) {
+      window.dataLayer.push(args);
     };
 
     // Push initial dataLayer event

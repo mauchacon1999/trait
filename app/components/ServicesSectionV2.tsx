@@ -90,7 +90,7 @@ export default function ServicesSectionV2() {
 
                 {/* Services Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                    {services.map((service, index) => (
+                    {services.map((service) => (
                         <div
                             key={service.id}
                             className={`bg-gradient-to-br from-navy-50 to-slate-purple-50 p-8 rounded-2xl hover:shadow-xl transition-all duration-700 ease-out transform hover:scale-105 flex flex-col h-full`}
