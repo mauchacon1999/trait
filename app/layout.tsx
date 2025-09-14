@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import "./globals.css";
-import Landbot from "./components/Landbot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +30,6 @@ export default function RootLayout({
       >
         {children}
         <GoogleAnalytics measurementId="GTM-K96KHJR7" />
-        <Landbot /> {/* Landbot chatbot */}
       </body>
     </html>
   );

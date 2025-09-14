@@ -41,7 +41,7 @@ export default function HeroSection() {
             button_type: 'whatsapp'
         });
         // Aquí puedes agregar el enlace de WhatsApp
-        window.open('https://wa.me/+34600000000', '_blank');
+        window.open('https://wa.me/+56972160435', '_blank');
     };
 
     const handlePresupuestoClick = () => {
